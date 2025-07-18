@@ -117,15 +117,11 @@ export function DashboardClient() {
                 <div className="space-y-6">
                   <Card>
                     <CardHeader className="flex flex-row items-center justify-between pb-2">
-                      <CardTitle className="text-sm font-medium">Top Breed Predictions</CardTitle>
+                      <CardTitle className="text-sm font-medium">Top Breed Prediction</CardTitle>
                       <PawPrint className="h-4 w-4 text-muted-foreground" />
                     </CardHeader>
                     <CardContent>
-                      <div className="space-y-2">
-                        {breedAndAgeResult.breed.predictions.map((p, i) => (
-                          <p key={i} className="text-sm font-medium leading-none">{p.breed}</p>
-                        ))}
-                      </div>
+                       <div className="text-2xl font-bold">{breedAndAgeResult.breed.predictions[0]?.breed || 'N/A'}</div>
                     </CardContent>
                   </Card>
                    <Card>
