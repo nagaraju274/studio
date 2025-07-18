@@ -6,7 +6,7 @@ import { AuthProvider } from '@/contexts/auth-context';
 import { AnalysisProvider } from '@/contexts/analysis-context';
 
 export const metadata: Metadata = {
-  title: 'PetPal AI',
+  title: 'pet-guide',
   description: 'AI-powered pet analysis and care guidance.',
 };
 

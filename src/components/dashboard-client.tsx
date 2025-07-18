@@ -102,7 +102,7 @@ export function DashboardClient() {
           <Clapperboard className="mr-2 h-4 w-4" /> Behavior
         </TabsTrigger>
         <TabsTrigger value="petbot">
-          <BrainCircuit className="mr-2 h-4 w-4" /> PetBot Chat
+          <BrainCircuit className="mr-2 h-4 w-4" /> PetGuide Chat
         </TabsTrigger>
       </TabsList>
       

@@ -32,7 +32,7 @@ export default function LandingPage() {
       <header className="container mx-auto flex h-20 items-center justify-between px-4">
         <div className="flex items-center gap-2">
           <AppLogo />
-          <h1 className="text-2xl font-bold text-foreground">PetPal AI</h1>
+          <h1 className="text-2xl font-bold text-foreground">pet-guide</h1>
         </div>
         <Button asChild>
           <Link href="/login">Get Started</Link>
@@ -65,7 +65,7 @@ export default function LandingPage() {
         </section>
       </main>
       <footer className="container mx-auto border-t py-6 text-center text-muted-foreground">
-        <p>&copy; {new Date().getFullYear()} PetPal AI. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} pet-guide. All rights reserved.</p>
       </footer>
     </div>
   );

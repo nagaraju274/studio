@@ -62,7 +62,7 @@ export default function PetBotChat({ breedAndAgeResult, behaviorResult }: PetBot
       toast({
         variant: 'destructive',
         title: 'Chat Error',
-        description: 'Failed to get a response from PetBot.',
+        description: 'Failed to get a response from PetGuide.',
       });
       // remove the user's message if the bot fails to respond
       setMessages(prev => prev.slice(0, -1));
@@ -74,7 +74,7 @@ export default function PetBotChat({ breedAndAgeResult, behaviorResult }: PetBot
   return (
     <Card className="w-full h-full flex flex-col">
       <CardHeader>
-        <CardTitle>PetBot Assistant</CardTitle>
+        <CardTitle>PetGuide Assistant</CardTitle>
         <CardDescription>Ask me anything about your pet's care!</CardDescription>
       </CardHeader>
       <CardContent className="flex-grow overflow-hidden">

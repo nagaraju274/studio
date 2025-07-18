@@ -52,7 +52,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         <SidebarHeader>
            <Link href="/dashboard" className="flex items-center gap-2 font-semibold">
             <AppLogo />
-            <span className="text-lg">PetPal AI</span>
+            <span className="text-lg">pet-guide</span>
           </Link>
         </SidebarHeader>
         <SidebarContent>

@@ -10,7 +10,7 @@ export default function LoginPage() {
             <Link href="/" className="flex items-center gap-2 mb-4">
               <AppLogo />
             </Link>
-          <h1 className="text-3xl font-bold font-headline text-foreground">Welcome to PetPal AI</h1>
+          <h1 className="text-3xl font-bold font-headline text-foreground">Welcome to pet-guide</h1>
           <p className="text-muted-foreground">Sign in to continue to your dashboard</p>
         </div>
         <AuthForm />

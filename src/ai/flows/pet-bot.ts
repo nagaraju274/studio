@@ -30,7 +30,7 @@ const prompt = ai.definePrompt({
   name: 'petBotPrompt',
   input: {schema: PetBotInputSchema},
   output: {schema: PetBotOutputSchema},
-  prompt: `You are a helpful AI assistant for pet owners. Your name is PetBot.
+  prompt: `You are a helpful AI assistant for pet owners. Your name is PetGuide.
 
   You answer questions about pet care, and you tailor your responses to the specific pet based on available information.
 
