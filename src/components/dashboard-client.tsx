@@ -121,12 +121,11 @@ export function DashboardClient() {
                       <PawPrint className="h-4 w-4 text-muted-foreground" />
                     </CardHeader>
                     <CardContent>
-                      {breedAndAgeResult.breed.predictions.map((p, i) => (
-                        <div key={i} className="flex items-center justify-between space-y-1">
-                          <p className="text-sm font-medium leading-none">{p.breed}</p>
-                          <Badge variant="secondary">{Math.round(p.confidence * 100)}%</Badge>
-                        </div>
-                      ))}
+                      <div className="space-y-2">
+                        {breedAndAgeResult.breed.predictions.map((p, i) => (
+                          <p key={i} className="text-sm font-medium leading-none">{p.breed}</p>
+                        ))}
+                      </div>
                     </CardContent>
                   </Card>
                    <Card>
