@@ -14,7 +14,7 @@ import Image from 'next/image';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import PetBotChat from '@/components/petbot-chat';
-import { PawPrint, Clapperboard, BrainCircuit, Droplets, HeartPulse, Activity, Users, Baby, PersonStanding, User, Elderly } from 'lucide-react';
+import { PawPrint, Clapperboard, BrainCircuit, Droplets, HeartPulse, Activity, Users, Baby, PersonStanding, User, UserCog } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
@@ -176,7 +176,7 @@ export function DashboardClient() {
                             <AccordionContent>{breedAndAgeResult.breed.behaviorWithAdults}</AccordionContent>
                           </AccordionItem>
                           <AccordionItem value="item-3">
-                             <AccordionTrigger><div className="flex items-center gap-2"><Elderly className="h-4 w-4" /> With Elderly</div></AccordionTrigger>
+                             <AccordionTrigger><div className="flex items-center gap-2"><UserCog className="h-4 w-4" /> With Elderly</div></AccordionTrigger>
                             <AccordionContent>{breedAndAgeResult.breed.behaviorWithElderly}</AccordionContent>
                           </AccordionItem>
                            <AccordionItem value="item-4">
