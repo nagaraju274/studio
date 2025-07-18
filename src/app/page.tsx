@@ -56,8 +56,8 @@ export default function LandingPage() {
           <div className="relative h-80 w-full md:h-96">
             <Image
               src="https://placehold.co/600x400.png"
-              alt="Happy pets"
-              data-ai-hint="happy dog cat"
+              alt="A happy dog and cat sitting together"
+              data-ai-hint="happy pet"
               fill
               className="rounded-xl object-cover shadow-lg"
             />
