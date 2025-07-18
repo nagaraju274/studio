@@ -14,7 +14,13 @@ import Image from 'next/image';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import PetBotChat from '@/components/petbot-chat';
-import { PawPrint, Clapperboard, BrainCircuit, Droplets, HeartPulse, Activity } from 'lucide-react';
+import { PawPrint, Clapperboard, BrainCircuit, Droplets, HeartPulse, Activity, Users, Baby, PersonStanding, User, Elderly } from 'lucide-react';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 export function DashboardClient() {
   const { toast } = useToast();
@@ -115,26 +121,27 @@ export function DashboardClient() {
                     <Image src={breedAndAgeResult.photo} alt="Uploaded pet" fill className="rounded-lg object-cover" />
                 </div>
                 <div className="space-y-4">
-                  <Card>
-                    <CardHeader className="flex flex-row items-center justify-between pb-2">
-                      <CardTitle className="text-sm font-medium">Breed Prediction</CardTitle>
-                      <PawPrint className="h-4 w-4 text-muted-foreground" />
-                    </CardHeader>
-                    <CardContent>
-                       <div className="text-2xl font-bold">{breedAndAgeResult.breed.breed}</div>
-                       <p className="text-xs text-muted-foreground">Confidence: {Math.round(breedAndAgeResult.breed.confidence * 100)}%</p>
-                    </CardContent>
-                  </Card>
-                   <Card>
-                    <CardHeader className="flex flex-row items-center justify-between pb-2">
-                      <CardTitle className="text-sm font-medium">Estimated Age</CardTitle>
-                      <Droplets className="h-4 w-4 text-muted-foreground" />
-                    </CardHeader>
-                    <CardContent>
-                       <div className="text-2xl font-bold">{breedAndAgeResult.age.ageRange}</div>
-                       <p className="text-xs text-muted-foreground">Confidence: {Math.round(breedAndAgeResult.age.confidence * 100)}%</p>
-                    </CardContent>
-                  </Card>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <Card>
+                      <CardHeader className="flex flex-row items-center justify-between pb-2">
+                        <CardTitle className="text-sm font-medium">Breed Prediction</CardTitle>
+                        <PawPrint className="h-4 w-4 text-muted-foreground" />
+                      </CardHeader>
+                      <CardContent>
+                        <div className="text-2xl font-bold">{breedAndAgeResult.breed.breed}</div>
+                      </CardContent>
+                    </Card>
+                    <Card>
+                      <CardHeader className="flex flex-row items-center justify-between pb-2">
+                        <CardTitle className="text-sm font-medium">Estimated Age</CardTitle>
+                        <Droplets className="h-4 w-4 text-muted-foreground" />
+                      </CardHeader>
+                      <CardContent>
+                        <div className="text-2xl font-bold">{breedAndAgeResult.age.ageRange}</div>
+                        <p className="text-xs text-muted-foreground">Confidence: {Math.round(breedAndAgeResult.age.confidence * 100)}%</p>
+                      </CardContent>
+                    </Card>
+                  </div>
                   <Card>
                     <CardHeader className="flex flex-row items-center justify-between pb-2">
                       <CardTitle className="text-sm font-medium">Typical Life Span</CardTitle>
@@ -151,6 +158,36 @@ export function DashboardClient() {
                     </CardHeader>
                     <CardContent>
                        <p className="text-sm">{breedAndAgeResult.breed.commonHealthIssues}</p>
+                    </CardContent>
+                  </Card>
+                   <Card>
+                    <CardHeader className="flex flex-row items-center justify-between pb-2">
+                      <CardTitle className="text-sm font-medium">Behavioral Patterns</CardTitle>
+                      <Users className="h-4 w-4 text-muted-foreground" />
+                    </CardHeader>
+                    <CardContent>
+                        <Accordion type="single" collapsible className="w-full">
+                          <AccordionItem value="item-1">
+                            <AccordionTrigger><div className="flex items-center gap-2"><Baby className="h-4 w-4" /> With Kids</div></AccordionTrigger>
+                            <AccordionContent>{breedAndAgeResult.breed.behaviorWithKids}</AccordionContent>
+                          </AccordionItem>
+                          <AccordionItem value="item-2">
+                             <AccordionTrigger><div className="flex items-center gap-2"><PersonStanding className="h-4 w-4" /> With Adults</div></AccordionTrigger>
+                            <AccordionContent>{breedAndAgeResult.breed.behaviorWithAdults}</AccordionContent>
+                          </AccordionItem>
+                          <AccordionItem value="item-3">
+                             <AccordionTrigger><div className="flex items-center gap-2"><Elderly className="h-4 w-4" /> With Elderly</div></AccordionTrigger>
+                            <AccordionContent>{breedAndAgeResult.breed.behaviorWithElderly}</AccordionContent>
+                          </AccordionItem>
+                           <AccordionItem value="item-4">
+                             <AccordionTrigger><div className="flex items-center gap-2"><Users className="h-4 w-4" /> With Family</div></AccordionTrigger>
+                            <AccordionContent>{breedAndAgeResult.breed.behaviorWithFamily}</AccordionContent>
+                          </AccordionItem>
+                           <AccordionItem value="item-5">
+                             <AccordionTrigger><div className="flex items-center gap-2"><User className="h-4 w-4" /> With Strangers</div></AccordionTrigger>
+                            <AccordionContent>{breedAndAgeResult.breed.behaviorWithStrangers}</AccordionContent>
+                          </AccordionItem>
+                        </Accordion>
                     </CardContent>
                   </Card>
                 </div>

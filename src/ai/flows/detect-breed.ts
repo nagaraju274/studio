@@ -27,6 +27,11 @@ const DetectBreedOutputSchema = z.object({
     .describe('The confidence level of the prediction (0-1).'),
   lifeSpan: z.string().describe("The typical life span of the pet's breed."),
   commonHealthIssues: z.string().describe("Common health issues for the pet's breed."),
+  behaviorWithKids: z.string().describe("The typical behavior of the breed with children."),
+  behaviorWithAdults: z.string().describe("The typical behavior of the breed with adults."),
+  behaviorWithElderly: z.string().describe("The typical behavior of the breed with elderly people."),
+  behaviorWithFamily: z.string().describe("The typical behavior of the breed with its family members."),
+  behaviorWithStrangers: z.string().describe("The typical behavior of the breed with strangers."),
 });
 export type DetectBreedOutput = z.infer<typeof DetectBreedOutputSchema>;
 
@@ -42,7 +47,7 @@ const prompt = ai.definePrompt({
 
   Analyze the provided photo and identify the pet's most likely breed. 
   
-  Provide the breed name, a confidence score (0-1), the typical life span for that breed, and a summary of common health issues for that breed.
+  Provide the breed name, a confidence score (0-1), the typical life span for that breed, a summary of common health issues for that breed, and describe its typical behavioral patterns with children, adults, elderly people, its family, and with strangers.
 
   Photo: {{media url=photoDataUri}}`,
 });
