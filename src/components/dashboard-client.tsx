@@ -14,7 +14,7 @@ import Image from 'next/image';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import PetBotChat from '@/components/petbot-chat';
-import { PawPrint, Clapperboard, BrainCircuit, Droplets } from 'lucide-react';
+import { PawPrint, Clapperboard, BrainCircuit, Droplets, HeartPulse, Activity } from 'lucide-react';
 
 export function DashboardClient() {
   const { toast } = useToast();
@@ -114,14 +114,15 @@ export function DashboardClient() {
                 <div className="relative aspect-square w-full max-w-sm mx-auto">
                     <Image src={breedAndAgeResult.photo} alt="Uploaded pet" fill className="rounded-lg object-cover" />
                 </div>
-                <div className="space-y-6">
+                <div className="space-y-4">
                   <Card>
                     <CardHeader className="flex flex-row items-center justify-between pb-2">
-                      <CardTitle className="text-sm font-medium">Top Breed Prediction</CardTitle>
+                      <CardTitle className="text-sm font-medium">Breed Prediction</CardTitle>
                       <PawPrint className="h-4 w-4 text-muted-foreground" />
                     </CardHeader>
                     <CardContent>
-                       <div className="text-2xl font-bold">{breedAndAgeResult.breed.predictions[0]?.breed || 'N/A'}</div>
+                       <div className="text-2xl font-bold">{breedAndAgeResult.breed.breed}</div>
+                       <p className="text-xs text-muted-foreground">Confidence: {Math.round(breedAndAgeResult.breed.confidence * 100)}%</p>
                     </CardContent>
                   </Card>
                    <Card>
@@ -132,6 +133,24 @@ export function DashboardClient() {
                     <CardContent>
                        <div className="text-2xl font-bold">{breedAndAgeResult.age.ageRange}</div>
                        <p className="text-xs text-muted-foreground">Confidence: {Math.round(breedAndAgeResult.age.confidence * 100)}%</p>
+                    </CardContent>
+                  </Card>
+                  <Card>
+                    <CardHeader className="flex flex-row items-center justify-between pb-2">
+                      <CardTitle className="text-sm font-medium">Typical Life Span</CardTitle>
+                      <Activity className="h-4 w-4 text-muted-foreground" />
+                    </CardHeader>
+                    <CardContent>
+                       <div className="text-xl font-bold">{breedAndAgeResult.breed.lifeSpan}</div>
+                    </CardContent>
+                  </Card>
+                  <Card>
+                    <CardHeader className="flex flex-row items-center justify-between pb-2">
+                      <CardTitle className="text-sm font-medium">Common Health Issues</CardTitle>
+                      <HeartPulse className="h-4 w-4 text-muted-foreground" />
+                    </CardHeader>
+                    <CardContent>
+                       <p className="text-sm">{breedAndAgeResult.breed.commonHealthIssues}</p>
                     </CardContent>
                   </Card>
                 </div>

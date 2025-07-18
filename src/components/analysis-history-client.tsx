@@ -49,7 +49,7 @@ export function AnalysisHistoryClient() {
               <div className="space-y-2">
                 <div>
                   <h4 className="font-semibold">Top Breed Prediction:</h4>
-                  <p>{record.result.data.predictions[0]?.breed || 'N/A'}</p>
+                  <p>{record.result.data.breed || 'N/A'}</p>
                 </div>
                 <div>
                   <h4 className="font-semibold">Estimated Age:</h4>

@@ -48,7 +48,7 @@ export default function PetBotChat({ breedAndAgeResult, behaviorResult }: PetBot
     try {
       const petBotInput: PetBotInput = {
         question: input,
-        breed: breedAndAgeResult?.breed.predictions[0]?.breed,
+        breed: breedAndAgeResult?.breed.breed,
         age: breedAndAgeResult?.age.ageRange,
         behavior: behaviorResult?.behaviorAnalysis.likelyClassifications,
         history: messages.map(m => `${m.role}: ${m.content}`).join('\n'),

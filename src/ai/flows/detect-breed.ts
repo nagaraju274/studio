@@ -21,15 +21,12 @@ const DetectBreedInputSchema = z.object({
 export type DetectBreedInput = z.infer<typeof DetectBreedInputSchema>;
 
 const DetectBreedOutputSchema = z.object({
-  predictions: z.array(
-    z.object({
-      breed: z.string().describe('The predicted breed of the pet.'),
-      confidence: z
-        .number()
-        .describe('The confidence level of the prediction (0-1).'),
-    })
-  ).
-describe('A list of breed predictions with confidence levels.'),
+  breed: z.string().describe('The most likely breed of the pet.'),
+  confidence: z
+    .number()
+    .describe('The confidence level of the prediction (0-1).'),
+  lifeSpan: z.string().describe("The typical life span of the pet's breed."),
+  commonHealthIssues: z.string().describe("Common health issues for the pet's breed."),
 });
 export type DetectBreedOutput = z.infer<typeof DetectBreedOutputSchema>;
 
@@ -43,17 +40,11 @@ const prompt = ai.definePrompt({
   output: {schema: DetectBreedOutputSchema},
   prompt: `You are an expert in identifying pet breeds.
 
-  Analyze the provided photo and identify the pet's breed. Provide a list of up to 5 breed predictions, along with their confidence levels (0-1).
+  Analyze the provided photo and identify the pet's most likely breed. 
+  
+  Provide the breed name, a confidence score (0-1), the typical life span for that breed, and a summary of common health issues for that breed.
 
-  Photo: {{media url=photoDataUri}}
-  {
-    "predictions": [
-      {
-        "breed": "",
-        "confidence": 0
-      }
-    ]
-  }`,
+  Photo: {{media url=photoDataUri}}`,
 });
 
 const detectBreedFlow = ai.defineFlow(
