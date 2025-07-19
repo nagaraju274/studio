@@ -56,7 +56,7 @@ Create a `.env.local` file in the root of the project by copying the `.env` file
 cp .env .env.local
 ```
 
-Now, open `.env.local` and add your Firebase project configuration and Google AI API key.
+Now, open `.env.local` and add your Firebase project configuration and Google AI API key. You can find your Firebase config in your Firebase project settings under "Your apps".
 
 ```env
 # Google AI API Key
@@ -79,7 +79,7 @@ NEXT_PUBLIC_FIREBASE_APP_ID="YOUR_FIREBASE_APP_ID"
 2.  Go to **Authentication** > **Settings** > **Authorized domains**.
 3.  Click **Add domain** and add the following:
     *   `localhost` (for local development).
-    *   Your deployed application's domain (e.g., `your-project-id.web.app`) once you deploy it.
+    *   Your deployed application's domain (e.g., `your-project-id.web.app` or `your-project-id.apphosting.dev`) once you deploy it.
 
 ### 5. Run the Development Server
 
@@ -103,7 +103,23 @@ This will start the Genkit development UI, which you can use to inspect and debu
 
 ## 🚀 Deployment
 
-This application is ready to be deployed with [Firebase App Hosting](https://firebase.google.com/docs/app-hosting). After deploying, remember to add your production URL to the "Authorized domains" list in your Firebase Authentication settings, as described in Step 4.
+This application is ready to be deployed with [Firebase App Hosting](https://firebase.google.com/docs/app-hosting). 
+
+### Important Deployment Steps
+
+1.  **Set Environment Secrets**: Before deploying, you must set your environment variables as secrets in App Hosting. This is more secure than committing them in your `.env` files.
+    ```bash
+    firebase apphosting:secrets:set GEMINI_API_KEY
+    firebase apphosting:secrets:set NEXT_PUBLIC_FIREBASE_API_KEY
+    firebase apphosting:secrets:set NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+    firebase apphosting:secrets:set NEXT_PUBLIC_FIREBASE_PROJECT_ID
+    firebase apphosting:secrets:set NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+    firebase apphosting:secrets:set NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+    firebase apphosting:secrets:set NEXT_PUBLIC_FIREBASE_APP_ID
+    ```
+    When prompted, paste the corresponding value for each secret.
+
+2.  **Authorize Production Domain**: After your first successful deployment, App Hosting will give you a production URL (e.g., `your-app-name.apphosting.dev`). You **must** add this URL to the "Authorized domains" list in your Firebase Authentication settings, as described in Step 4.
 
 ## 📄 License
 

@@ -1,5 +1,6 @@
+
 import { initializeApp, getApps, getApp, type FirebaseApp } from "firebase/app";
-import { getAuth, type Auth } from "firebase/auth";
+import { getAuth, type Auth, connectAuthEmulator } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -10,6 +11,7 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
+// Initialize Firebase
 let app: FirebaseApp;
 if (!getApps().length) {
   app = initializeApp(firebaseConfig);
@@ -18,5 +20,10 @@ if (!getApps().length) {
 }
 
 const auth: Auth = getAuth(app);
+
+if (process.env.NODE_ENV === "development" && process.env.NEXT_PUBLIC_FIREBASE_AUTH_EMULATOR_HOST) {
+    connectAuthEmulator(auth, `http://${process.env.NEXT_PUBLIC_FIREBASE_AUTH_EMULATOR_HOST}`);
+}
+
 
 export { app, auth };
