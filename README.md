@@ -71,9 +71,17 @@ NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID="YOUR_FIREBASE_MESSAGING_SENDER_ID"
 NEXT_PUBLIC_FIREBASE_APP_ID="YOUR_FIREBASE_APP_ID"
 ```
 
-**Important:** In your Firebase project's Authentication settings, make sure to add the local development domain (`localhost`) to the list of authorized domains.
+### 4. Authorize Domains in Firebase
 
-### 4. Run the Development Server
+**This is a critical step for authentication to work.**
+
+1.  Go to the [Firebase Console](https://console.firebase.google.com/) and navigate to your project.
+2.  Go to **Authentication** > **Settings** > **Authorized domains**.
+3.  Click **Add domain** and add the following:
+    *   `localhost` (for local development).
+    *   Your deployed application's domain (e.g., `your-project-id.web.app`) once you deploy it.
+
+### 5. Run the Development Server
 
 You can now start the Next.js development server:
 
@@ -83,7 +91,7 @@ npm run dev
 
 The application will be available at `http://localhost:9002`.
 
-### 5. Start the Genkit Development Server
+### 6. Start the Genkit Development Server
 
 For the AI features to work, you need to run the Genkit server in a separate terminal:
 
@@ -92,6 +100,10 @@ npm run genkit:watch
 ```
 
 This will start the Genkit development UI, which you can use to inspect and debug your AI flows.
+
+## 🚀 Deployment
+
+This application is ready to be deployed with [Firebase App Hosting](https://firebase.google.com/docs/app-hosting). After deploying, remember to add your production URL to the "Authorized domains" list in your Firebase Authentication settings, as described in Step 4.
 
 ## 📄 License
 
