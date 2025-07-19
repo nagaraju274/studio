@@ -233,7 +233,7 @@ export function DashboardClient() {
       <TabsContent value="petbot" className="mt-4">
         <PetBotChat 
           breedAndAgeResult={breedAndAgeResult}
-          behaviorResult={behaviorResult?.behavior}
+          behaviorResult={behaviorResult?.behavior || null}
         />
       </TabsContent>
     </Tabs>
