@@ -77,9 +77,7 @@ NEXT_PUBLIC_FIREBASE_APP_ID="YOUR_FIREBASE_APP_ID"
 
 1.  Go to the [Firebase Console](https://console.firebase.google.com/) and navigate to your project.
 2.  Go to **Authentication** > **Settings** > **Authorized domains**.
-3.  Click **Add domain** and add the following:
-    *   `localhost` (for local development).
-    *   Your deployed application's domain (e.g., `your-project-id.web.app` or `your-project-id.apphosting.dev`) once you deploy it.
+3.  Click **Add domain** and add `localhost` for local development.
 
 ### 5. Run the Development Server
 
@@ -103,9 +101,9 @@ This will start the Genkit development UI, which you can use to inspect and debu
 
 ## 🚀 Deployment
 
-This application is ready to be deployed with [Firebase App Hosting](https://firebase.google.com/docs/app-hosting). 
+This application is ready to be deployed with [Firebase App Hosting](https://firebase.google.com/docs/app-hosting) but can also be deployed to other platforms that support Next.js (like Vercel, Netlify, etc.).
 
-### Important Deployment Steps
+### Deploying with Firebase App Hosting
 
 1.  **Set Environment Secrets**: Before deploying, you must set your environment variables as secrets in App Hosting. This is more secure than committing them in your `.env` files.
     ```bash
@@ -120,6 +118,12 @@ This application is ready to be deployed with [Firebase App Hosting](https://fir
     When prompted, paste the corresponding value for each secret.
 
 2.  **Authorize Production Domain**: After your first successful deployment, App Hosting will give you a production URL (e.g., `your-app-name.apphosting.dev`). You **must** add this URL to the "Authorized domains" list in your Firebase Authentication settings, as described in Step 4.
+
+### Deploying with Other Platforms
+
+If you choose to deploy to another platform like Vercel or Netlify:
+- **Environment Variables**: You will need to set up the environment variables listed in `.env.local` using your chosen platform's dashboard or CLI.
+- **Authorized Domain**: You must add your production URL to the "Authorized domains" list in your Firebase Authentication settings for Google Sign-In to work.
 
 ## 📄 License
 
