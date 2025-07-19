@@ -22,7 +22,7 @@
 -   **Authentication**: [Firebase Authentication](https://firebase.google.com/docs/auth)
 -   **UI Components**: [ShadCN UI](https://ui.shadcn.com/)
 -   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
--   **Deployment**: Ready for [Firebase App Hosting](https://firebase.google.com/docs/app-hosting)
+-   **Deployment**: [Firebase App Hosting](https://firebase.google.com/docs/app-hosting), [Netlify](https://www.netlify.com/), [Vercel](https://vercel.com/)
 
 ## 🔧 Getting Started
 
@@ -101,7 +101,25 @@ This will start the Genkit development UI, which you can use to inspect and debu
 
 ## 🚀 Deployment
 
-This application is ready to be deployed with [Firebase App Hosting](https://firebase.google.com/docs/app-hosting) but can also be deployed to other platforms that support Next.js (like Vercel, Netlify, etc.).
+This application can be deployed to any platform that supports Next.js, such as Firebase App Hosting, Netlify, or Vercel.
+
+### Deploying with Netlify
+
+1.  **Push to a Git repository** (GitHub, GitLab, Bitbucket).
+2.  Go to your [Netlify dashboard](https://app.netlify.com/) and click "Add new site" -> "Import an existing project".
+3.  Connect to your Git provider and select your repository.
+4.  Netlify should automatically detect that this is a Next.js project and set the build command to `next build` and the publish directory to `.next`.
+5.  Before deploying, you must set your environment variables. Go to **Site settings** > **Build & deploy** > **Environment**. Add the following variables:
+    -   `GEMINI_API_KEY`
+    -   `NEXT_PUBLIC_FIREBASE_API_KEY`
+    -   `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN`
+    -   `NEXT_PUBLIC_FIREBASE_PROJECT_ID`
+    -   `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET`
+    -   `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID`
+    -   `NEXT_PUBLIC_FIREBASE_APP_ID`
+6.  Click **Deploy site**.
+7.  **Authorize Production Domain**: After your first successful deployment, Netlify will give you a production URL (e.g., `your-app-name.netlify.app`). You **must** add this URL to the "Authorized domains" list in your Firebase Authentication settings, as described in Step 4.
+
 
 ### Deploying with Firebase App Hosting
 
@@ -119,11 +137,6 @@ This application is ready to be deployed with [Firebase App Hosting](https://fir
 
 2.  **Authorize Production Domain**: After your first successful deployment, App Hosting will give you a production URL (e.g., `your-app-name.apphosting.dev`). You **must** add this URL to the "Authorized domains" list in your Firebase Authentication settings, as described in Step 4.
 
-### Deploying with Other Platforms
-
-If you choose to deploy to another platform like Vercel or Netlify:
-- **Environment Variables**: You will need to set up the environment variables listed in `.env.local` using your chosen platform's dashboard or CLI.
-- **Authorized Domain**: You must add your production URL to the "Authorized domains" list in your Firebase Authentication settings for Google Sign-In to work.
 
 ## 📄 License
 
