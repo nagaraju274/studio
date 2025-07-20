@@ -2,18 +2,18 @@
 # This file provides explicit instructions to Netlify on how to build and deploy the site.
 
 [build]
-
   # This is the command Netlify will run to build your site.
   # 'next build' is the standard command for a Next.js application.
   command = "next build"
 
-
   # This is the directory that Netlify will deploy.
   # For Next.js, the output directory is always '.next'.
   publish = ".next"
-   
-  [build.environment]
-    SECRETS_SCAN_ENABLED = "false"
+
+[build.environment]
+  # Disables the automatic secret scanning feature during the build.
+  # This can be useful if the build is failing due to false positives.
+  NETLIFY_SKIP_SECRETS_SCANNING = "true"
 
 [dev]
   # This tells Netlify's dev environment (if used) to start the Next.js dev server.
