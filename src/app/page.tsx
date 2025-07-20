@@ -106,7 +106,7 @@ export default function LandingPage() {
               <Image
                 src="https://placehold.co/800x600.png"
                 alt="A happy dog and a curious cat looking at the camera"
-                data-ai-hint="happy dog cat"
+                data-ai-hint="happy dog"
                 fill
                 className="rounded-xl object-cover shadow-2xl"
               />
@@ -178,3 +178,5 @@ export default function LandingPage() {
     </div>
   );
 }
+
+    
