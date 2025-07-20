@@ -14,6 +14,7 @@
   # Disables the automatic secret scanning feature during the build.
   # This can be useful if the build is failing due to false positives.
   NETLIFY_SKIP_SECRETS_SCANNING = "true"
+  SECRETS_SCAN_ENABLED = "false"
 
 [dev]
   # This tells Netlify's dev environment (if used) to start the Next.js dev server.
