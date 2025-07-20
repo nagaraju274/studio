@@ -116,7 +116,7 @@ export function DashboardClient() {
             <FileUploader onFileUpload={handleImageUpload} accept={{ 'image/png': [], 'image/jpeg': [] }} />
             {isBreedLoading && <Progress value={50} className="w-full mt-4 animate-pulse" />}
             {breedAndAgeResult && (
-              <div className="mt-6 grid gap-6 md:grid-cols-2">
+              <div className="mt-6 grid gap-6 grid-cols-1 md:grid-cols-2">
                 <div className="relative aspect-square w-full max-w-sm mx-auto">
                     <Image src={breedAndAgeResult.photo} alt="Uploaded pet" fill className="rounded-lg object-cover" />
                 </div>
@@ -207,7 +207,7 @@ export function DashboardClient() {
             <FileUploader onFileUpload={handleVideoUpload} accept={{ 'video/mp4': [] }} />
              {isBehaviorLoading && <Progress value={50} className="w-full mt-4 animate-pulse" />}
             {behaviorResult && (
-              <div className="mt-6 grid gap-6 md:grid-cols-2">
+              <div className="mt-6 grid gap-6 grid-cols-1 md:grid-cols-2">
                 <div className="relative aspect-video w-full max-w-sm mx-auto">
                    <video src={behaviorResult.video} controls className="rounded-lg w-full h-full" />
                 </div>
@@ -233,7 +233,7 @@ export function DashboardClient() {
       <TabsContent value="petbot" className="mt-4">
         <PetBotChat 
           breedAndAgeResult={breedAndAgeResult}
-          behaviorResult={behaviorResult?.behavior || null}
+          behaviorResult={behaviorResult ? behaviorResult.behavior : null}
         />
       </TabsContent>
     </Tabs>
