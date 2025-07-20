@@ -9,8 +9,8 @@ export default function LoginPage() {
         <div className="flex flex-col items-center text-center">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <AppLogo />
+              <h1 className="text-3xl font-bold font-headline text-foreground">pet-guide</h1>
             </Link>
-          <h1 className="text-3xl font-bold font-headline text-foreground">Welcome to pet-guide</h1>
           <p className="text-muted-foreground">Sign in to continue to your dashboard</p>
         </div>
         <AuthForm />
