@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -94,7 +95,7 @@ export function DashboardClient() {
 
   return (
     <Tabs defaultValue="breed" className="w-full">
-      <TabsList className="grid w-full grid-cols-1 md:grid-cols-3">
+      <TabsList className="grid w-full grid-cols-1 h-auto sm:h-10 sm:grid-cols-3">
         <TabsTrigger value="breed">
           <PawPrint className="mr-2 h-4 w-4" /> Breed & Age
         </TabsTrigger>

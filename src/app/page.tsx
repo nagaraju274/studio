@@ -67,7 +67,7 @@ export default function LandingPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm">
-        <div className="container mx-auto flex h-20 items-center justify-between px-4">
+        <div className="container mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-2">
             <AppLogo />
             <h1 className="text-2xl font-bold text-foreground">pet-guide</h1>
@@ -86,7 +86,7 @@ export default function LandingPage() {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="py-20 sm:py-32">
-          <div className="container mx-auto grid grid-cols-1 items-center gap-12 px-4 text-center md:grid-cols-2 md:text-left">
+          <div className="container mx-auto grid grid-cols-1 items-center gap-12 px-4 text-center md:grid-cols-2 md:text-left sm:px-6 lg:px-8">
             <div className="space-y-6">
               <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline">
                 Understand Your Pet Like Never Before
@@ -94,17 +94,19 @@ export default function LandingPage() {
               <p className="text-lg text-muted-foreground">
                 Leverage AI to identify your pet's breed, estimate their age, analyze behavior, and get personalized care advice. All with a simple photo or video.
               </p>
-              <Button size="lg" className="mt-8" asChild>
-                <Link href="/login">
-                  Analyze Your Pet Now <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <Button size="lg" asChild>
+                  <Link href="/login">
+                    Analyze Your Pet Now <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+              </div>
             </div>
             <div className="relative h-80 w-full md:h-96">
               <Image
-                src="https://placehold.co/600x400.png"
-                alt="A variety of happy pets including a dog, cat, rabbit, and parrot"
-                data-ai-hint="happy pets"
+                src="https://placehold.co/800x600.png"
+                alt="A happy dog and cat sitting together"
+                data-ai-hint="happy dog cat"
                 fill
                 className="rounded-xl object-cover shadow-2xl"
               />
@@ -114,8 +116,8 @@ export default function LandingPage() {
 
         {/* Features Section */}
         <section id="features" className="bg-card/50 py-20 sm:py-24">
-            <div className="container mx-auto px-4">
-                <div className="text-center">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center max-w-3xl mx-auto">
                     <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">A New Level of Pet Care</h2>
                     <p className="mt-4 text-lg text-muted-foreground">Everything you need to be the best pet parent you can be.</p>
                 </div>
@@ -133,8 +135,8 @@ export default function LandingPage() {
 
         {/* How It Works Section */}
         <section className="py-20 sm:py-24">
-            <div className="container mx-auto px-4">
-                 <div className="text-center">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                 <div className="text-center max-w-3xl mx-auto">
                     <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Simple &amp; Fast</h2>
                     <p className="mt-4 text-lg text-muted-foreground">Get started in three easy steps.</p>
                 </div>
@@ -143,7 +145,7 @@ export default function LandingPage() {
                         <div key={index} className="flex flex-col items-center text-center">
                            {step.icon}
                            <h3 className="mt-6 text-xl font-semibold">{step.title}</h3>
-                           <p className="mt-2 text-muted-foreground">{step.description}</p>
+                           <p className="mt-2 text-muted-foreground max-w-xs">{step.description}</p>
                         </div>
                     ))}
                 </div>
@@ -152,7 +154,7 @@ export default function LandingPage() {
         
         {/* CTA Section */}
         <section className="bg-primary/10 py-20 sm:py-24">
-             <div className="container mx-auto px-4 text-center">
+             <div className="container mx-auto px-4 text-center sm:px-6 lg:px-8">
                 <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Ready to Decode Your Pet?</h2>
                 <p className="mt-4 text-lg text-muted-foreground">
                     Join thousands of happy pet owners and start your journey to deeper understanding.
@@ -169,7 +171,7 @@ export default function LandingPage() {
       </main>
       
       <footer className="bg-card">
-        <div className="container mx-auto border-t py-6 text-center text-muted-foreground">
+        <div className="container mx-auto border-t py-6 text-center text-muted-foreground px-4 sm:px-6 lg:px-8">
             <p>&copy; {new Date().getFullYear()} pet-guide. All rights reserved.</p>
         </div>
       </footer>
